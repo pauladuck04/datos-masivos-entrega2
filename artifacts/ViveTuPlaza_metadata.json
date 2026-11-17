@@ -1,0 +1,623 @@
+{
+	"compiler": {
+		"version": "0.8.34+commit.80d5c536"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [],
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "uint256",
+						"name": "actividadId",
+						"type": "uint256"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "organizador",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint32",
+						"name": "plazas",
+						"type": "uint32"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint64",
+						"name": "fechaInicio",
+						"type": "uint64"
+					}
+				],
+				"name": "ActividadCreada",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "anterior",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "nuevo",
+						"type": "address"
+					}
+				],
+				"name": "AdministracionTransferida",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "uint256",
+						"name": "actividadId",
+						"type": "uint256"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "participante",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "posicion",
+						"type": "uint256"
+					}
+				],
+				"name": "AnadidoAListaEspera",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "uint256",
+						"name": "actividadId",
+						"type": "uint256"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "participante",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "bool",
+						"name": "tardia",
+						"type": "bool"
+					}
+				],
+				"name": "InscripcionCancelada",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "uint256",
+						"name": "actividadId",
+						"type": "uint256"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "participante",
+						"type": "address"
+					}
+				],
+				"name": "Inscrito",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "organizador",
+						"type": "address"
+					}
+				],
+				"name": "OrganizadorAcreditado",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "organizador",
+						"type": "address"
+					}
+				],
+				"name": "OrganizadorRevocado",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "participante",
+						"type": "address"
+					}
+				],
+				"name": "ParticipanteDadoDeBaja",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "participante",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "bytes32",
+						"name": "hashIdentidad",
+						"type": "bytes32"
+					}
+				],
+				"name": "ParticipanteRegistrado",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "uint256",
+						"name": "actividadId",
+						"type": "uint256"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "participante",
+						"type": "address"
+					}
+				],
+				"name": "PromocionadoDesdeEspera",
+				"type": "event"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "organizador",
+						"type": "address"
+					}
+				],
+				"name": "acreditarOrganizador",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"name": "actividades",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "id",
+						"type": "uint256"
+					},
+					{
+						"internalType": "address",
+						"name": "organizador",
+						"type": "address"
+					},
+					{
+						"internalType": "bytes32",
+						"name": "hashFicha",
+						"type": "bytes32"
+					},
+					{
+						"internalType": "uint64",
+						"name": "fechaInicio",
+						"type": "uint64"
+					},
+					{
+						"internalType": "uint64",
+						"name": "limiteInscripcion",
+						"type": "uint64"
+					},
+					{
+						"internalType": "uint64",
+						"name": "limiteCancelacion",
+						"type": "uint64"
+					},
+					{
+						"internalType": "uint32",
+						"name": "plazasTotales",
+						"type": "uint32"
+					},
+					{
+						"internalType": "uint32",
+						"name": "plazasOcupadas",
+						"type": "uint32"
+					},
+					{
+						"internalType": "uint32",
+						"name": "maxListaEspera",
+						"type": "uint32"
+					},
+					{
+						"internalType": "uint32",
+						"name": "enEspera",
+						"type": "uint32"
+					},
+					{
+						"internalType": "enum ViveTuPlaza.EstadoActividad",
+						"name": "estado",
+						"type": "uint8"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "administrador",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "ahora",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "actividadId",
+						"type": "uint256"
+					}
+				],
+				"name": "cancelarInscripcion",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "bytes32",
+						"name": "hashFicha",
+						"type": "bytes32"
+					},
+					{
+						"internalType": "uint64",
+						"name": "fechaInicio",
+						"type": "uint64"
+					},
+					{
+						"internalType": "uint64",
+						"name": "limiteInscripcion",
+						"type": "uint64"
+					},
+					{
+						"internalType": "uint64",
+						"name": "limiteCancelacion",
+						"type": "uint64"
+					},
+					{
+						"internalType": "uint32",
+						"name": "plazasTotales",
+						"type": "uint32"
+					},
+					{
+						"internalType": "uint32",
+						"name": "maxListaEspera",
+						"type": "uint32"
+					}
+				],
+				"name": "crearActividad",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "actividadId",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "participante",
+						"type": "address"
+					}
+				],
+				"name": "darDeBajaParticipante",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "actividadId",
+						"type": "uint256"
+					}
+				],
+				"name": "inscribirse",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					},
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"name": "inscripciones",
+				"outputs": [
+					{
+						"internalType": "enum ViveTuPlaza.EstadoInscripcion",
+						"name": "",
+						"type": "uint8"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "numActividades",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"name": "organizadores",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"name": "participantes",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "registrado",
+						"type": "bool"
+					},
+					{
+						"internalType": "bytes32",
+						"name": "hashIdentidad",
+						"type": "bytes32"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "actividadId",
+						"type": "uint256"
+					}
+				],
+				"name": "plazasLibres",
+				"outputs": [
+					{
+						"internalType": "uint32",
+						"name": "",
+						"type": "uint32"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "actividadId",
+						"type": "uint256"
+					},
+					{
+						"internalType": "address",
+						"name": "participante",
+						"type": "address"
+					}
+				],
+				"name": "posicionEnEspera",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "participante",
+						"type": "address"
+					},
+					{
+						"internalType": "bytes32",
+						"name": "hashIdentidad",
+						"type": "bytes32"
+					}
+				],
+				"name": "registrarParticipante",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "organizador",
+						"type": "address"
+					}
+				],
+				"name": "revocarOrganizador",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "nuevo",
+						"type": "address"
+					}
+				],
+				"name": "transferirAdministracion",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {
+				"posicionEnEspera(uint256,address)": {
+					"returns": {
+						"_0": "posición en la lista de espera (1 = la siguiente en entrar) o 0 si no está en espera"
+					}
+				}
+			},
+			"title": "ViveTuPlaza - Fase 3a: crear actividades e inscribirse",
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {
+				"cancelarInscripcion(uint256)": {
+					"notice": "Cancela la plaza o el puesto en la lista de espera de quien llama.         Si libera una plaza dentro del plazo de inscripción, la ocupa         automáticamente la primera persona válida de la lista de espera."
+				},
+				"inscripciones(uint256,address)": {
+					"notice": "actividadId => participante => estado de su inscripción"
+				},
+				"registrarParticipante(address,bytes32)": {
+					"notice": "Alta de una persona mayor. Fuera de la cadena (el \"oráculo\" del padrón,         simulado aquí por el administrador) se ha comprobado que cumple los requisitos."
+				}
+			},
+			"notice": "Roles + creación de actividades + inscripción con plazas limitadas         y lista de espera por orden de llegada.",
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"contracts/ViveTuPlazasol.sol": "ViveTuPlaza"
+		},
+		"evmVersion": "osaka",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"contracts/ViveTuPlazasol.sol": {
+			"keccak256": "0x310216f0613713b56253def32e1334d2970f89cff861bf049685ac8205f6a904",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://ad7142730d3002ff0f7bce3f793cd7fccb0aeaa6c55ca7013761f89e79dbb26c",
+				"dweb:/ipfs/QmPAKsUtpEuxCGS7jF9PSCyDb2KKJLTWRy9z1eYKZyAs6P"
+			]
+		}
+	},
+	"version": 1
+}
